@@ -17,16 +17,21 @@ $cursos = [];
 $indice = 0;
 
 //Laço
-while($linhas = mysqli_fetch_assoc($executar)){
-    $cursos[$indice]['idCurso'] = $linha['idCurso'];
-    $cursos[$indice]['nomeCurso'] = $linha['nomeCurso'];
-    $cursos[$indice]['valorCurso'] = $linha['valorCurso'];
 
+while($linhas = mysqli_fetch_assoc($executar)){
+    
+    $cursos[$indice]['idCurso'] = $linhas['idCurso'];
+    $cursos[$indice]['nomeCurso'] = $linhas['nomeCurso'];
+    $cursos[$indice]['valorCurso'] = $linhas['valorCurso'];
     $indice++;
 }
 
-//JSON
-json_encode(['cursos'=>$cursos]);
+// JSON
+$response = json_encode(['cursos' => $cursos]);
 
-var_dump($cursos);
+// Definir o cabeçalho como JSON
+header('Content-Type: application/json');
+
+// Enviar a resposta JSON
+echo $response;
 ?>
