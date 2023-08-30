@@ -16,5 +16,4 @@ $idCurso = $extrair->curso->idCurso;
 $sql = "DELETE FROM cursos WHERE idCurso=$idCurso ";
 mysqli_query($conexao, $sql);
 
-
 ?>

@@ -9,7 +9,7 @@ $sql = "SELECT * FROM cursos";
 // Executar
 $executar = mysqli_query($conexao, $sql);
 
-
+header('Access-Control-Allow-Origin: *');
 //vetor 
 $cursos = [];
 
